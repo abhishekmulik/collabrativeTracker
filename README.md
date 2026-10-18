@@ -1,13 +1,22 @@
-# AI Dev Kit (Claude Code, project-agnostic)
+# Collaborative Habit Tracker
 
-Install once: ./install.sh (puts agents and commands in ~/.claude).
-Per project: copy CLAUDE.project.md to CLAUDE.md and fill in stack and commands.
+Shared, competitive habit tracking for small private groups. Product truth: `PRODUCT.md`. Plan: `docs/PLAN.md` (summary in `docs/PLAN_SUMMARY.md`). Conventions and commands: `CLAUDE.md`.
 
-Flow:
-/kickoff <idea>  -> planner writes SPEC, ARCHITECTURE, PLAN. You approve.
-/build-phase 1   -> implementer -> test-engineer -> code-reviewer loop (max 3 rounds)
-/build-phase 2 ... repeat
-/ship            -> quality-auditor + release-engineer, human approves prod deploy
-/review          -> ad hoc independent review any time
+## AI workflow (ai-dev-kit)
 
-Human gates: plan approval, new dependencies, API/schema changes, production deploy.
+Claude agents and commands live in the [ai-dev-kit](https://github.com/abhishekmulik/ai-dev-kit) repo and are pulled in as a submodule at `.claude/kit`.
+
+First clone:
+```
+git clone --recurse-submodules https://github.com/abhishekmulik/collabrativeTracker.git
+.claude/sync-kit.sh
+```
+
+Update to the latest kit:
+```
+git submodule update --remote .claude/kit
+.claude/sync-kit.sh
+git add -A && git commit -m "chore: bump ai-dev-kit"
+```
+
+Project-specific agents or commands can be added as normal files in `.claude/agents` or `.claude/commands`; the sync script never overwrites them.
