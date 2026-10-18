@@ -41,6 +41,8 @@
 - No TODOs left without an entry in docs/BACKLOG.md
 
 ## Agent workflow
-Plan (planner) -> per phase: implement -> test -> review loop -> /ship (audit + release).
-Humans approve: the plan, any new dependency, any schema/API contract change, production deploy.
+Agents and commands come from the ai-dev-kit, the single source of truth for how Claude behaves. It is a git submodule at `.claude/kit` and is linked into `.claude/agents` and `.claude/commands` by `.claude/sync-kit.sh`. Do not edit those linked files here; change them in the ai-dev-kit repo, then bump the submodule (see README).
+
+Flow: /kickoff -> /review-plan (plan-reviewer loop) -> human sets `Status: approved` in docs/PLAN.md -> /build-phase N (implement -> test -> review loop) -> /ship (audit + release).
+Humans approve: the plan (after plan-reviewer APPROVE), any new dependency, any schema/API contract change, production deploy.
 Never: disable tests to pass, commit secrets, push to main directly.

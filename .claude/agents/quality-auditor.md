@@ -1,0 +1,1 @@
+../kit/agents/quality-auditor.md
