@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-React + TypeScript + Vite with a PWA plugin; Tailwind and Framer Motion for UI and animation; Recharts for charts; Supabase (Postgres with row-level security, Google auth, realtime) as the backend; a transactional email service such as Resend for invites. Deploy target is not yet decided.
+React + TypeScript + Vite with a PWA plugin; Tailwind and Framer Motion for UI and animation; Recharts for charts; Supabase (Postgres with row-level security, Google auth, realtime) as the backend; a transactional email service such as Resend for invites. Deploy target is Vercel.
 
 ## Users
 
@@ -49,8 +49,6 @@ Confirmed for v1:
 Explicitly deferred: Google contacts picker, head-to-head view, goals with milestones, insights tab, trophy room, kudos and nudges, streak freezes, leagues, push notifications and reminders, points with streak bonuses, timed and numeric habits, proof photos, weekly recap cards, Strava and Google Fit integrations.
 
 Undecided product facts:
-
-- Scoring in v1: plain completion percentage (recommended in the plan) or points with streak bonuses. Percentage is the working assumption for v1, not a confirmed decision.
 - How to handle an invite email that differs from the Google account used to sign in.
 - Whether email invites are bound to the invited address or may be forwarded.
 - Whether a Space may have more than one active challenge at a time.

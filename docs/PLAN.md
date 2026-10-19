@@ -39,7 +39,7 @@ A group can complete the full arc — create Space → invite → check in → r
 | Routing | React Router |
 | Forms/validation | React Hook Form + Zod |
 
-Package manager, test stack, and deploy target remain **open decisions** (§8).
+Package manager (npm) and deploy target (Vercel) are confirmed. Test stack remains an open decision (§8).
 
 ### 2.2 App structure
 
@@ -433,15 +433,15 @@ Plan approved → per phase: implement → test → code review loop → `/ship`
 
 ---
 
-## 8. Open questions — need human decisions
-
-| # | Question | Plan's working assumption |
-|---|---|---|
-| 1 | **Scoring in v1:** completion percentage or points with streak bonuses? | Percentage (§3.2). Needs confirmation. |
-| 2 | **Package manager:** npm, pnpm, or yarn? | Undecided; blocks scaffold. |
-| 3 | **Test stack:** Vitest + RTL + Playwright? | Assumed; needs confirmation. |
-| 4 | **Deploy target:** Vercel, Netlify, Cloudflare Pages, other? | Undecided. |
-| 5 | **Email provider:** Resend, Postmark, SendGrid, other? | Resend assumed; needs an account/API key. |
-| 6 | **Email invites:** locked to the invited address, or forwardable? | The token is the credential, so invites are effectively forwardable (same as link invites). Locking would require an email-match gate. Recommended: forwardable, with Admin visibility into who accepted. |
-| 7 | **Space timezone:** per-Space setting vs. each user's local date? | Per-Space `settings.timezone`, defaulting to the creator's. |
-| 8 | **Dark theme in v1?** | Not specified; omitted from phase criteria. |
+## 8. Open questions & decisions
+ 
+ | # | Question / Decision | Status / Choice |
+ |---|---|---|
+ | 1 | **Scoring in v1:** completion percentage or points with streak bonuses? | **Confirmed:** Plain completion percentage (§3.2). |
+ | 2 | **Package manager:** npm, pnpm, or yarn? | **Confirmed:** `npm`. |
+ | 3 | **Test stack:** Vitest + RTL + Playwright? | Assumed; needs confirmation. |
+ | 4 | **Deploy target:** Vercel, Netlify, Cloudflare Pages, other? | **Confirmed:** `Vercel`. |
+ | 5 | **Email provider:** Resend, Postmark, SendGrid, other? | Resend assumed; needs an account/API key. |
+ | 6 | **Email invites:** locked to the invited address, or forwardable? | The token is the credential, so invites are effectively forwardable (same as link invites). Locking would require an email-match gate. Recommended: forwardable, with Admin visibility into who accepted. |
+ | 7 | **Space timezone:** per-Space setting vs. each user's local date? | Per-Space `settings.timezone`, defaulting to the creator's. |
+ | 8 | **Dark theme in v1?** | Not specified; omitted from phase criteria. |

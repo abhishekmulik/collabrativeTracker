@@ -17,23 +17,21 @@ Full plan: `docs/PLAN.md`. Product truth: `PRODUCT.md`. Status: **awaiting human
 - **Auth:** Supabase Auth with Google OAuth and email magic link; `auth.uid()` is the sole identity.
 - **Invites:** the **token is the credential, not the email** — this resolves the "invited email differs from sign-in account" edge case. Must be signed up before joining; the token is preserved through the auth round-trip for auto-join. Usage counted atomically against `max_uses`; expiry and revocation enforced server-side.
 - **RLS is the security boundary.** Admins see membership, never private habit details. Percentage-only habits expose aggregates through a dedicated view/RPC, never rows.
-- **Scoring:** completion percentage derived at query time (no stored score). Working assumption pending confirmation.
+- **Scoring:** completion percentage derived at query time (confirmed).
 - **One active challenge per Space** enforced by a partial unique index.
 - **Dates:** check-ins stored as calendar dates; the Space's timezone (default: creator's) defines a "day."
 - **Realtime is an enhancement**, not a correctness dependency; every screen refetches on mount/focus.
 - **Email invites are effectively forwardable** (token-based). Recommended; flagged for confirmation.
 - **Data model:** `users`, `spaces`, `memberships`, `invites`, `habits`, `checkins`, `challenges`, `badges`, `activity_feed`. No `goals` table in v1.
+- **Package manager & Deploy target:** `npm` and `Vercel` (confirmed).
 
 ## Open questions (human decisions)
 
-1. **Scoring for v1:** completion percentage (plan's assumption) vs points with streak bonuses.
-2. **Package manager:** npm / pnpm / yarn — blocks scaffold.
-3. **Test stack:** Vitest + React Testing Library + Playwright assumed.
-4. **Deploy target:** Vercel / Netlify / Cloudflare Pages / other.
-5. **Email provider:** Resend assumed; needs an account and API key.
-6. **Email invites:** locked to invited address or forwardable? Recommended: forwardable.
-7. **Space timezone:** per-Space setting vs each user's local date? Recommended: per-Space, defaulting to creator's.
-8. **Dark theme in v1?** Not specified; omitted.
+1. **Test stack:** Vitest + React Testing Library + Playwright assumed.
+2. **Email provider:** Resend assumed; needs an account and API key.
+3. **Email invites:** locked to invited address or forwardable? Recommended: forwardable.
+4. **Space timezone:** per-Space setting vs each user's local date? Recommended: per-Space, defaulting to creator's.
+5. **Dark theme in v1?** Not specified; omitted.
 
 ## Out of scope for v1
 
