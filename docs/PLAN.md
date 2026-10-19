@@ -1,6 +1,6 @@
 # Collaborative Habit Tracker — MVP Plan
 
-> Status: **awaiting human approval**. No implementation begins until this plan is approved or edited.
+> Status: **approved**. Phase 1 implementation underway.
 > Product truth lives in `PRODUCT.md`. Conventions and commands live in `CLAUDE.md`.
 
 ## 1. Overview
